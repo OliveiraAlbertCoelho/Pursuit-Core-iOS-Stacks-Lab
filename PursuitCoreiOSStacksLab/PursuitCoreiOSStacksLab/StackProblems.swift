@@ -4,14 +4,28 @@ import Foundation
 //Find the largest integer in a Stack of Ints
 
 func largest(stack: Stack<Int>) -> Int {
-    return 0
+    var stack = stack
+    var biggest = 0
+    while !stack.isEmpty(){
+    var a = stack.pop()
+        if a! > biggest {
+            biggest = a!
+    }
+  
+    }
+      return biggest
 }
 
-//Problem Two:
-//Find the sum of a Stack of Ints
 
 func sum(stack: Stack<Int>) -> Int {
-    return 0
+       var stack = stack
+    var sum = 0
+    while !stack.isEmpty(){
+      sum += stack.pop()!
+        
+    }
+    return sum
+    
 }
 
 //Problem Three:
@@ -34,7 +48,13 @@ func sum(stack: Stack<Int>) -> Int {
  */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
-    return Stack<T>()
+       var stack = stack
+    var anotherStack = Stack<T>()
+    while !stack.isEmpty(){
+       anotherStack.push(element: stack.pop()!)
+    
+    }
+    return anotherStack
 }
 
 
@@ -42,16 +62,34 @@ func reverse<T>(stack: Stack<T>) -> Stack<T> {
 //Determine if two stacks are equal
 
 func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
-    return false
-}
+    var stackOnes = stackOne
+    var stackTwos = stackTwo
+    while !stackOnes.isEmpty() {
+        if stackOnes.pop() != stackTwos.pop() {
+        return false
+        }
+    }
+    return stackOnes.isEmpty() && stackTwos.isEmpty()
+    }
 
 
 //Problem Five:
 //Write a function that pushes a new element to the bottom of a Stack
 
 func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
-    return Stack<T>()
+    var reversedStack = reverse(stack: stack)
+    reversedStack.push(element: newElement)
+    reversedStack = reverse(stack: reversedStack)
+    return reversedStack
 }
+
+func print<T>(stack: Stack<T>) {
+       var stack = stack
+    while !stack.isEmpty() {
+        print(stack.pop()!)
+    }
+}
+
 
 //Problem Six:
 //Determine if the parentheses are balanced in a given String
@@ -67,6 +105,10 @@ func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
 
 
 func isBalanced(str: String) -> Bool {
+    
+    for (k,v) in str.enumerated(){
+        
+    }
     return false
 }
 
